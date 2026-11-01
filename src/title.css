@@ -1,0 +1,64 @@
+:root{font-family:'Microsoft YaHei','PingFang SC',sans-serif;color:#fff3d2;background:#071e35;font-synthesis:none}
+*{box-sizing:border-box}
+html,body,#root{margin:0;width:100%;height:100%;overflow:hidden}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid #fff3ba;outline-offset:3px}
+img{image-rendering:pixelated;user-select:none;pointer-events:none;display:block}
+.opening-screen{position:fixed;inset:0;display:grid;place-items:center;overflow:clip}
+/* 整个游戏（天空、云层、木牌、菜单）共享同一个16:9坐标系。 */
+.sky-scene{--camera:0;--dawn:1;position:relative;width:min(100vw,177.777778svh);aspect-ratio:16/9;overflow:clip;isolation:isolate;background:#60dce8;container-type:inline-size}
+.sky-texture{position:absolute;width:104%;left:-2%;top:-3%;transform:translate3d(0,calc(var(--camera)*2%),0);will-change:transform}
+.sky-texture img{width:100%;height:auto}
+.dawn-overlay{position:absolute;inset:0;background:#061e51ed;opacity:var(--dawn);z-index:5;pointer-events:none}
+.cloud-layer{position:absolute;inset:0;z-index:2;pointer-events:none;will-change:transform;opacity:0}
+.playing .cloud-layer{animation:clouds-in 1.8s ease-out forwards}
+.cloud-layer.far{transform:translate3d(0,calc((var(--camera) - 1)*5%),0);z-index:2}
+.cloud-layer.middle{transform:translate3d(0,calc((var(--camera) - 1)*12%),0);z-index:3}
+.cloud-layer.near{transform:translate3d(0,calc((var(--camera) - 1)*22%),0);z-index:4}
+.cloud-sprite{position:absolute;animation:drift 100s linear infinite;will-change:transform}
+.far .cloud-sprite{animation-duration:150s}
+.near .cloud-sprite{animation-duration:72s}
+.cloud-sprite img{width:100%;height:auto}
+.title-artboard{position:absolute;inset:0;z-index:6}
+.sign-entrance{position:absolute;width:72%;left:14%;top:10%;opacity:0;transform:translateY(-160%);will-change:transform,opacity}
+.playing .sign-entrance{animation:sign-drop 2s 4s both cubic-bezier(.19,1,.22,1)}
+.sign-idle{position:relative;width:100%;aspect-ratio:1999/787}
+.playing .sign-idle{animation:sign-breathe 7s 6s ease-in-out infinite}
+.sign-art{width:100%;height:auto}
+h1{position:absolute;inset:25% 10% 13%;margin:0;display:grid;place-items:center;font-family:'SimSun','Songti SC',serif;font-weight:900;font-size:6.2cqw;letter-spacing:.05em;text-indent:.05em;color:#83401d;text-shadow:1px 0 #e8a04d,-1px 0 #e8a04d,0 -1px #ffd992,2px 3px #5a311c,3px 4px #6c3c2244;line-height:1;white-space:nowrap}
+.title-menu{position:absolute;top:74%;left:0;width:100%;display:flex;justify-content:center;align-items:flex-start;gap:3%}
+.menu-entrance{width:24%;opacity:0;transform:translateY(200%);will-change:transform,opacity}
+.playing .menu-entrance.first{animation:menu-rise 1.4s 6s both cubic-bezier(.2,.9,.3,1.13)}
+.playing .menu-entrance.second{animation:menu-rise 1.4s 7.2s both cubic-bezier(.2,.9,.3,1.13)}
+.pixel-menu-button{position:relative;display:grid;place-items:center;border:0;background:none;width:100%;aspect-ratio:2172/724;padding:0;min-height:44px;transition:filter .16s,transform .12s;color:#6c341d}
+/* 不使用object-fit:fill，不独立改变图像宽高，透明留白也原样保留。 */
+.pixel-menu-button img{width:100%;height:auto}
+.pixel-menu-button span{position:absolute;inset:0;display:grid;place-items:center;font-family:'SimSun','Songti SC',serif;font-size:max(12px,2.3cqw);font-weight:900;letter-spacing:.12em;text-indent:.12em;text-shadow:1px 1px #ffe2a1;transform:translateY(-3%)}
+.pixel-menu-button:disabled{cursor:default}
+.pixel-menu-button:hover:enabled{filter:brightness(1.1);transform:translateY(-2px)}
+.pixel-menu-button:active:enabled,.pixel-menu-button.pressed{transform:translateY(3px);filter:brightness(.97)}
+.music-button{position:absolute;right:2%;top:3%;z-index:12;display:flex;align-items:center;gap:6px;border:1px solid #d1eaff68;box-shadow:0 2px #042b4e55;background:#0c3e6880;color:#e0f3ef;padding:7px 10px;font-size:clamp(9px,.85cqw,12px);min-height:32px;letter-spacing:1px}
+.music-button>span:first-child{font-size:16px;line-height:1}
+.music-button:hover{background:#275d84}
+.loading-note{position:absolute;bottom:4%;left:0;width:100%;text-align:center;z-index:13;font-size:12px;letter-spacing:2px;color:#d7e9ec}
+.opening-audio-gate{position:absolute;inset:0;z-index:11;background:#071e35;display:grid;place-items:center}
+.opening-audio-gate button{border:0;background:none;padding:20px;color:#ffe367;font:clamp(18px,2.4cqw,34px) 'Starwish Pixel',sans-serif;text-shadow:2px 2px #49351d;line-height:1.5}
+.opening-audio-gate button:hover{color:#fff2a0}
+.guide-backdrop{position:absolute;inset:0;z-index:20;background:#032444aa;display:grid;place-items:center;padding:10px;backdrop-filter:blur(3px)}
+.travel-guide{width:min(450px,90%);max-height:90%;overflow:auto;background:#f1dfb5;color:#694c31;padding:clamp(12px,2.5cqw,34px);border:5px ridge #aa6939;box-shadow:0 5px 0 #573619,0 20px 60px #00204390;animation:guide-in .3s ease-out;text-align:center}
+.travel-guide small{font-size:10px;letter-spacing:3px;color:#a18453}
+.travel-guide h2{font-family:'SimSun',serif;font-size:clamp(20px,2.4cqw,30px);letter-spacing:5px;margin:12px 0 15px}
+.guide-rule{height:1px;background:#c2a775;margin-bottom:15px}
+.travel-guide p{font-size:clamp(11px,1.1cqw,13px);line-height:1.9;margin:12px 0}
+.travel-guide .guide-tip{font-size:11px;color:#9b7c50}
+.guide-close{padding:10px 24px;margin-top:10px;background:#deb173;color:#674328;border:2px solid #996133;box-shadow:0 3px #744522;font-size:13px;font-weight:700;min-height:44px}
+.guide-close:active{transform:translateY(3px)}
+@keyframes sign-drop{0%{opacity:0;transform:translateY(-160%)}9%{opacity:1}65%{opacity:1;transform:translateY(3.5%)}80%{opacity:1;transform:translateY(-1.6%)}100%{opacity:1;transform:translateY(0)}}
+@keyframes menu-rise{0%{opacity:0;transform:translateY(200%)}25%{opacity:1}80%{opacity:1;transform:translateY(-5%)}100%{opacity:1;transform:translateY(0)}}
+@keyframes drift{0%{transform:translateX(-2cqw)}50%{transform:translateX(2cqw)}100%{transform:translateX(-2cqw)}}
+@keyframes sign-breathe{50%{transform:translateY(-.25cqw)}}
+@keyframes clouds-in{from{opacity:0}to{opacity:1}}
+@keyframes guide-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:600px){.music-button{padding:5px 7px;gap:4px}.title-menu{top:73%}.travel-guide{width:94%;padding:12px}.guide-close{padding:8px 18px}}
+@media(prefers-reduced-motion:reduce){.cloud-sprite,.sign-idle{animation:none!important}.sign-entrance,.menu-entrance{animation-timing-function:linear!important}}
+

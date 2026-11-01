@@ -1,0 +1,6 @@
+.parcel-target{position:absolute;min-width:44px;min-height:44px;padding:0;background:transparent;border:0;cursor:pointer}
+.parcel-target:hover,.parcel-target:focus-visible{outline:2px dashed #fff0c9;outline-offset:4px}
+.parcel-target:active{transform:translateY(2px)}
+.parcel-target:disabled{cursor:default;outline:none}
+.parcel-hint{position:absolute;top:28%;left:50%;transform:translate(-50%,-50%);margin:0;max-width:80%;width:max-content;padding:10px 16px;background:#432b20d9;color:#fff0c9;font-family:'Starwish IPIX',sans-serif;font-size:clamp(12px,1.4cqw,23px);text-align:center;border:2px solid #9c6a3f;pointer-events:none}
+@media(max-width:600px){.parcel-hint{top:20%;max-width:85%;padding:5px 8px}}

@@ -1,0 +1,70 @@
+.parcel-interior{position:absolute;inset:0;z-index:3;overflow:hidden;font-family:'Starwish IPIX',sans-serif;animation:box-approach .8s ease-out both;background:#4e291d}
+.parcel-interior-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;image-rendering:pixelated}
+.parcel-loading{position:absolute;inset:0;display:grid;place-items:center;color:#fff0c9;background:#4e291de0;font-size:clamp(12px,2cqw,24px)}
+.parcel-items{position:absolute;inset:0;transition:opacity .25s}.parcel-items.obscured{opacity:.35}
+.parcel-object{position:absolute;display:block;aspect-ratio:1;border:0;background:transparent;padding:0;cursor:pointer;min-width:44px;min-height:44px;transition:transform .18s,filter .18s}
+.parcel-object canvas,.open-bag-art canvas,.journey-ticket canvas{display:block;width:100%;height:100%;image-rendering:pixelated}
+.envelope-object{left:15%;top:18%;width:33%;transform:rotate(-6deg)}
+.backpack-object{left:53%;top:12%;width:32%;transform:rotate(4deg)}
+.parcel-object:not(:disabled):hover{transform:rotate(0deg) scale(1.04);filter:brightness(1.1)}
+.parcel-object:not(:disabled):active{transform:scale(.98)}
+.parcel-object:focus-visible{outline:3px dashed #fff0c9;outline-offset:4px}
+.parcel-object:disabled{cursor:default}
+.parcel-object.opening{animation:envelope-unseal .65s ease-in both}
+.parcel-instruction{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);margin:0;padding:8px 14px;color:#fff0c9;background:#4e291ddb;border:2px solid #a46b3d;max-width:80%;width:max-content;text-align:center;font-size:clamp(12px,1.8cqw,24px);pointer-events:none}
+.parcel-shade{position:absolute;inset:0;background:#26170fc9;animation:parcel-shade-in .25s both}
+.parcel-letter,.parcel-bag-view{position:absolute;inset:0;outline:none}
+.folded-letter{position:absolute;top:2%;left:50%;transform:translateX(-50%);transform-origin:center top;height:64%;aspect-ratio:1089/1444;perspective:100cqw;isolation:isolate}
+.folded-letter.letter-expanded{transform:translateX(-50%) scale(1.2)}
+.phase-letterFocus .folded-letter{animation:letter-enlarge 2.4s cubic-bezier(.35,0,.25,1) both;will-change:transform}
+.paper-complete{display:block;width:100%;height:100%;image-rendering:pixelated}
+.letter-copy{position:absolute;inset:7% 8%;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;color:#71391f;font-size:clamp(12px,1.12cqw,16px);line-height:1.55;scrollbar-width:thin;scrollbar-color:#a46b3d transparent}
+.letter-copy p{margin:0 0 .45em}.letter-copy .letter-signature{text-align:right;margin-top:.8em;margin-bottom:0}
+.letter-copy:focus-visible{outline:1px dashed #a46b3d;outline-offset:3px}
+.phase-letterFocus .letter-copy{animation:parcel-control-in .7s .25s both}
+.departure-blackout{position:absolute;inset:0;z-index:15;background:#000;animation:departure-fade 3.8s ease-in-out both}
+.phase-prepared .parcel-ready{opacity:0;transition:opacity .6s;pointer-events:none}
+@keyframes departure-fade{from{opacity:0}to{opacity:1}}
+.paper-panel{position:absolute;left:0;width:100%;height:33.3334%;overflow:hidden;transform-style:preserve-3d;background:transparent}
+.paper-panel img{position:absolute;left:0;width:100%;height:300%;max-width:none;image-rendering:pixelated}
+.paper-top{top:0;transform-origin:center bottom;z-index:2}.paper-top img{top:0}
+.paper-middle{top:33.3333%;z-index:1}.paper-middle img{top:-100%}
+.paper-bottom{top:66.6666%;transform-origin:center top;z-index:3}.paper-bottom img{top:-200%}
+.phase-unfoldingLetter .paper-top{animation:paper-unfold-top 1.4s .1s cubic-bezier(.4,0,.25,1) both;will-change:transform}
+.phase-unfoldingLetter .paper-bottom{animation:paper-unfold-bottom 1.4s .6s cubic-bezier(.4,0,.25,1) both;will-change:transform}
+.phase-unfoldingLetter .paper-middle{animation:paper-center-in .25s both}
+.parcel-skip{z-index:10;font-family:inherit;cursor:pointer}
+.parcel-actions{position:absolute;bottom:4%;left:50%;transform:translateX(-50%);width:26%;min-width:160px;animation:parcel-control-in .25s both}
+.parcel-action{position:relative;display:block;width:100%;aspect-ratio:3.05;min-height:44px;background:transparent;border:0;padding:0;color:#71391f;font:inherit;cursor:pointer;transition:transform .15s,filter .15s}
+.parcel-action img{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+.parcel-action span{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(12px,1.9cqw,26px);font-weight:400;white-space:nowrap}
+.parcel-action:hover:not(:disabled){transform:scale(1.03);filter:brightness(1.08)}.parcel-action:active:not(:disabled){transform:translateY(3px)}
+.parcel-action:focus-visible{outline:3px dashed #fff0c9;outline-offset:3px}.parcel-action:disabled{cursor:default}
+.open-bag-art{position:absolute;left:50%;top:7%;transform:translateX(-50%);width:38%;aspect-ratio:1;z-index:0}
+.phase-openingBag .open-bag-art{animation:bag-unfold .65s ease-out both}
+.bag-front{z-index:2;pointer-events:none}
+.ticket-flight{position:absolute;inset:0;z-index:3;pointer-events:none}
+.phase-extractingTicket .ticket-flight{z-index:1;clip-path:inset(0 0 calc(100% - 21.8cqw) 0)}
+.journey-ticket{position:absolute;left:50%;top:13.5cqw;transform:translateX(-50%);width:52%;aspect-ratio:1.87}
+.phase-extractingTicket .journey-ticket{animation:ticket-draw-out 1.3s cubic-bezier(.3,.1,.3,1) both}
+.phase-ticketFocus .journey-ticket{animation:ticket-to-reader .75s cubic-bezier(.22,.7,.3,1) both}
+.phase-extractingTicket .ticket-print{opacity:0}.phase-ticketFocus .ticket-print{animation:parcel-control-in .3s .4s both}
+.ticket-print{position:absolute;inset:25% 16%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#71391f;text-align:center}
+.ticket-print span{font-size:clamp(12px,1.6cqw,24px)}.ticket-print strong{font-size:clamp(18px,3cqw,42px);font-weight:400;white-space:nowrap}
+.parcel-ready{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:38%;animation:parcel-control-in .5s both;text-align:center}
+.parcel-ready p{color:#fff0c9;font-size:clamp(12px,1.7cqw,24px);line-height:1.5;margin:18px -20% 0}
+.parcel-letter.storing,.parcel-bag-view.storing{animation:parcel-store .45s ease-in both}
+@keyframes box-approach{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes envelope-unseal{to{transform:translate(10%,-8%) rotate(0deg) scale(1.12);filter:brightness(1.18);opacity:0}}
+@keyframes parcel-shade-in{from{opacity:0}to{opacity:1}}
+@keyframes paper-unfold-top{from{transform:rotateX(-165deg)}to{transform:rotateX(0)}}
+@keyframes paper-unfold-bottom{from{transform:rotateX(165deg)}to{transform:rotateX(0)}}
+@keyframes letter-enlarge{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.2)}}
+@keyframes paper-center-in{from{opacity:0}to{opacity:1}}
+@keyframes bag-unfold{from{opacity:.4;transform:translate(-50%,8%) scale(.85)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes ticket-draw-out{from{top:23cqw;width:20%;transform:translateX(-50%) rotate(-5deg)}to{top:8cqw;width:20%;transform:translateX(-50%) rotate(0)}}
+@keyframes ticket-to-reader{from{top:8cqw;width:20%}to{top:13.5cqw;width:52%}}
+@keyframes parcel-control-in{from{opacity:0}to{opacity:1}}
+@keyframes parcel-store{to{opacity:0;transform:translateY(12%) scale(.9)}}
+@media(max-width:600px){.parcel-actions{width:42%;min-width:130px;bottom:2%}.folded-letter{top:1%;height:60%}.parcel-skip{padding:4px 6px;font-size:12px}.parcel-ready{width:66%}.ticket-print{gap:3px}.ticket-print strong{font-size:clamp(14px,3.8cqw,24px)}.parcel-instruction{bottom:6%;padding:5px 8px}}
+@media(prefers-reduced-motion:reduce){.parcel-interior,.parcel-object.opening,.paper-panel,.phase-letterFocus .folded-letter,.open-bag-art,.journey-ticket,.parcel-letter.storing,.parcel-bag-view.storing{animation-duration:.01ms;animation-delay:0s}.departure-blackout{animation-duration:1s}}

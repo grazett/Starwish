@@ -1,0 +1,4 @@
+.journey-scene{position:absolute;inset:0;z-index:4;background:#000;overflow:hidden;font-family:'Starwish IPIX',sans-serif}
+.journey-skip{z-index:2;cursor:pointer;font-family:inherit}
+.journey-caption{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;opacity:0;color:#fff0c9;font-size:clamp(14px,2.3cqw,44px);white-space:nowrap;text-shadow:-1px -1px #4e291d,1px -1px #4e291d,-1px 1px #4e291d,2px 2px #4e291d;pointer-events:none}
+@media(max-width:600px){.journey-skip{padding:4px 6px;font-size:12px}}

@@ -1,0 +1,20 @@
+/* 独立像素音符，44px点击区域，静音以降低亮度区分。 */
+.music-button{display:grid;place-items:center;width:44px;height:44px;padding:8px;border:0;box-shadow:none;background:transparent;color:#fff0ba;min-height:44px;transition:transform .15s,color .15s}
+.music-button svg{width:28px;height:28px;filter:drop-shadow(2px 2px 0 #164476);pointer-events:none}
+.music-button:hover{background:transparent;color:#fff9df;transform:translateY(-2px)}
+.music-button:active{transform:translateY(1px)}
+.music-button.muted{color:#8ba5b3}
+.music-button.muted svg{opacity:.65}
+
+/* 公告牌独立于16:9游戏画布，手机也能阅读；图片等比例显示。 */
+.guide-backdrop{position:absolute;inset:0;padding:12px;background:#032444b8;z-index:20}
+.travel-guide{position:relative;width:min(880px,92vw,176svh);aspect-ratio:2/1;max-height:88svh;overflow:visible;background:none;color:#71482c;padding:0;border:0;box-shadow:none;animation:guide-in .3s ease-out}
+.guide-art{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.guide-content{position:absolute;inset:22% 10% 23%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px}
+.travel-guide h2{font-family:'SimSun','Songti SC',serif;font-size:clamp(19px,2.7vw,30px);letter-spacing:5px;margin:0;line-height:1.2}
+.guide-body{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#b08b51 transparent}
+.travel-guide p{font-size:clamp(12px,1.3vw,15px);line-height:1.8;margin:5px 0}
+.travel-guide .guide-tip{font-size:clamp(11px,1.2vw,13px);color:#9b7950}
+.guide-close{justify-self:center;margin:0;padding:6px 22px;min-height:44px;background:#e6c38d;box-shadow:0 2px #744522;font-size:13px;border:2px solid #ad7742}
+@media(max-width:600px){.music-button{padding:8px;gap:0;top:1.5%;right:1%}.music-button svg{width:23px;height:23px}.travel-guide{width:min(94vw,880px);padding:0}.guide-content{inset:22% 10% 23%;gap:5px}.travel-guide h2{font-size:18px;letter-spacing:3px}.travel-guide p{margin:3px 0;line-height:1.75}.guide-close{min-height:36px;padding:4px 14px;font-size:11px}}
+

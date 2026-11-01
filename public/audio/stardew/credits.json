@@ -1,0 +1,37 @@
+[
+  {
+    "file": "title.mp3",
+    "title": "Stardew Valley Overture",
+    "artist": "ConcernedApe (Eric Barone)",
+    "source": "https://concernedape.bandcamp.com/track/stardew-valley-overture",
+    "bytes": 2343078
+  },
+  {
+    "file": "spring.mp3",
+    "title": "Spring (It's A Big World Outside)",
+    "artist": "ConcernedApe (Eric Barone)",
+    "source": "https://concernedape.bandcamp.com/track/spring-its-a-big-world-outside",
+    "bytes": 3780021
+  },
+  {
+    "file": "room.mp3",
+    "title": "Sun Room (Alone With Relaxing Tea)",
+    "artist": "ConcernedApe (Eric Barone)",
+    "source": "https://concernedape.bandcamp.com/track/sun-room-alone-with-relaxing-tea",
+    "bytes": 1678941
+  },
+  {
+    "file": "music-box.mp3",
+    "title": "Music Box Song",
+    "artist": "ConcernedApe (Eric Barone)",
+    "source": "https://concernedape.bandcamp.com/track/music-box-song",
+    "bytes": 1187839
+  },
+  {
+    "file": "cloud-country.mp3",
+    "title": "Cloud Country",
+    "artist": "ConcernedApe (Eric Barone)",
+    "source": "https://concernedape.bandcamp.com/track/cloud-country",
+    "bytes": 1441122
+  }
+]

@@ -1,0 +1,54 @@
+@font-face{font-family:'Room Handwriting';src:url('/fonts/ma-shan-zheng.ttf') format('truetype');font-display:swap}
+.room-dialog.room-puzzle-dialog{width:min(800px,calc(100vw - 24px));padding:18px}.room-puzzle-dialog .room-dialog-content{min-height:0;padding:12px 0}.puzzle-picture{position:relative;width:100%;line-height:0;overflow:hidden}.puzzle-picture>img{display:block;width:100%;height:auto;image-rendering:pixelated}.bookshelf-intro{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);margin:0!important;width:max-content;max-width:98%;white-space:nowrap;color:#ffe367;text-shadow:2px 2px 0 #49351d;font:clamp(12px,2.2vw,24px)/1.5 'Starwish Pixel',sans-serif!important;pointer-events:none}.room-dialog .star-book,.room-dialog .drawer-handle,.room-dialog .drawer-paper-hit{position:absolute;border:0;background:transparent;padding:0;box-shadow:none;cursor:pointer}.room-dialog .star-book:hover,.room-dialog .star-book:focus-visible{background:#fff1ad44;box-shadow:0 0 14px #ffde7d!important}.star-book span{visibility:hidden;position:absolute;right:-15px;top:-10px;color:#fff0a1;font-size:22px;text-shadow:1px 1px #896337}.puzzle-help,.puzzle-result{text-align:center;margin:14px 0 0!important;font:18px/1.5 'Starwish Pixel',sans-serif!important}.puzzle-result{color:#875944;background:#f6dfb9;padding:10px;border:2px solid #d7ae7e}.drawer-picture{aspect-ratio:1440/1072}.puzzle-picture>.drawer-frame{position:absolute;inset:0;opacity:0;transition:opacity .25s ease;pointer-events:none}.puzzle-picture>.drawer-frame.is-visible{opacity:1}.drawer-handle{left:47%;top:59.5%;width:6.5%;height:9%}.drawer-handle:hover,.drawer-handle:focus-visible,.drawer-paper-hit:hover,.drawer-paper-hit:focus-visible{background:#fff0ae33!important;box-shadow:0 0 12px #ffe6a2!important}.drawer-paper-hit{left:40.8%;top:57.4%;width:16.5%;height:7.2%;animation:paper-glow 1.8s ease-in-out infinite}.yellow-paper{background:#fff0b9 url('/assets/level-one/yellow-paper.webp') center/100% 100% no-repeat;color:#715039;padding:clamp(24px,5vw,54px);line-height:1.8}.room-dialog .yellow-paper p{margin:0 0 .65em}.drawer-letter{min-height:260px;display:flex;flex-direction:column;justify-content:center}.room-dialog .diary-paper p{font-family:'Room Handwriting','KaiTi','STKaiti',cursive;font-size:clamp(20px,2.3vw,27px);line-height:1.6;white-space:normal}.diary-date{margin-bottom:1em!important}.apple-underline{position:relative;white-space:nowrap;z-index:0}.apple-underline::after{content:'';position:absolute;left:-2%;right:-3%;height:6px;bottom:-4px;background:#e9aeb3;border-radius:45% 30% 45% 35%;transform:rotate(-2deg);z-index:-1;opacity:.8}.diary-doodles{display:flex;justify-content:flex-end}.diary-doodles svg{width:110px;height:42px}.room-dialog .puzzle-collect{display:block;margin:16px auto 0;background:#eccbb9}.room-dialog .puzzle-back{display:block;margin:12px auto 0;font-size:14px;background:none;box-shadow:none;border:0}.room-clues .clue-review{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;background:transparent;box-shadow:none;color:inherit;font:inherit;text-align:left;padding:0;cursor:pointer}.clue-review small{display:block;font-size:12px}.clue-review:hover{color:#a05d69}.clue-save-error{font-size:14px;color:#993e45}@keyframes book-found{50%{transform:translateY(-5px)}}@keyframes paper-glow{50%{box-shadow:0 0 14px #ffe6a2}}@media(max-width:600px){.room-dialog.room-puzzle-dialog{padding:12px}.room-puzzle-dialog h2{margin:8px 0;font-size:20px}.puzzle-help,.puzzle-result{font-size:14px!important}.yellow-paper{padding:25px 22px}.room-dialog .diary-paper p{font-size:21px}.drawer-letter{min-height:240px}.star-book span{font-size:15px;right:-9px}.bookshelf-intro{font-size:12px!important}}@media(prefers-reduced-motion:reduce){.star-book.is-found,.drawer-paper-hit{animation:none}.puzzle-picture>.drawer-frame{transition:none}}
+/* The three puzzles are full material views, with no surrounding window. */
+.room-dialog.room-puzzle-dialog{width:100vw;max-width:none;height:100svh;max-height:none;inset:0;margin:0;padding:0;border:0;box-shadow:none;border-radius:0;background:#eee4d0;overflow:auto;animation:puzzle-view-enter .22s ease-out}
+.room-puzzle-dialog .room-dialog-content{width:100%;min-height:100%;display:grid;place-items:center;padding:54px 12px 24px;border:0}
+.room-puzzle-dialog .room-dialog-content>div{width:100%}
+.room-puzzle-dialog .puzzle-picture{width:min(100%,calc((100svh - 140px) * 1440 / 1072));margin:auto}
+.room-dialog .puzzle-screen-title{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.room-dialog .puzzle-return{position:fixed;top:12px;left:16px;z-index:10;background:#fff3d7df;border:0;box-shadow:none;padding:9px 12px;color:#705139;font:18px/1.4 'Starwish Pixel',sans-serif}
+.room-puzzle-dialog .yellow-paper{width:min(780px,100%);margin:0 auto;background-color:transparent}
+.room-puzzle-dialog .puzzle-result{border:0;background:none;padding:0;color:#805336}
+.room-puzzle-dialog .puzzle-collect{background:#f8e8bd;border-color:#ad8c5e;box-shadow:2px 2px 0 #bd9e73}
+.room-puzzle-dialog .clue-save-error{position:fixed;bottom:0;background:#fff0d9;padding:8px;z-index:12}
+@keyframes puzzle-view-enter{from{opacity:0}to{opacity:1}}
+@media(max-width:600px){.room-dialog.room-puzzle-dialog{padding:0}.room-puzzle-dialog .room-dialog-content{padding:54px 12px 20px}.room-dialog .puzzle-return{font-size:14px;top:8px;left:8px}.room-puzzle-dialog .diary-paper{padding:30px 24px}}
+@media(prefers-reduced-motion:reduce){.room-dialog.room-puzzle-dialog{animation:none}}
+
+/* Only the supplied artwork is visible; the full-screen container has no backing. */
+.room-dialog.room-puzzle-dialog{background:transparent}
+.room-puzzle-dialog::backdrop{background:#161310}
+.room-puzzle-dialog:has(.paper-view)::backdrop{background:#20180f66}
+.room-puzzle-dialog .room-dialog-content{padding:0;min-height:100svh}
+.room-puzzle-dialog .bookshelf-puzzle,.room-puzzle-dialog .drawer-puzzle{position:relative;display:grid;place-items:center;min-height:100svh}
+.room-puzzle-dialog .puzzle-picture{width:min(100vw,calc(100svh * 1440 / 1072));margin:0}
+.room-puzzle-dialog .bookshelf-puzzle>.puzzle-result,.room-puzzle-dialog .bookshelf-puzzle>.puzzle-help,.room-puzzle-dialog .drawer-puzzle>.puzzle-help,.room-puzzle-dialog .drawer-puzzle>.puzzle-result{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);margin:0!important;width:max-content;max-width:94%;color:#ffe367;text-shadow:2px 2px #49351d;pointer-events:none}
+.room-puzzle-dialog .drawer-puzzle>.puzzle-result{bottom:50px}
+.room-dialog .puzzle-return{background:none;color:#ffe367;text-shadow:2px 2px #49351d}
+.room-puzzle-dialog .paper-view{padding:56px 16px 26px;background:none;border:0;box-shadow:none}
+.room-puzzle-dialog .paper-view>.puzzle-result,.room-puzzle-dialog .paper-view>.puzzle-back{color:#ffe367;text-shadow:2px 2px #49351d}
+.room-puzzle-dialog .yellow-paper{background-color:transparent}
+@media(max-width:600px){.room-puzzle-dialog .room-dialog-content{padding:0}.room-puzzle-dialog .paper-view{padding:52px 12px 22px}}
+
+.room-dialog.room-puzzle-dialog{animation:none}
+
+
+.room-puzzle-dialog .puzzle-picture>.drawer-base{position:relative;display:block;width:100%;height:auto}
+.room-puzzle-dialog .puzzle-picture>.drawer-frame{clip-path:polygon(34% 55%,67% 55%,67% 85%,34% 85%);transform:translateY(-2.5%);transition:opacity .5s ease-in-out,transform .55s cubic-bezier(.22,.61,.36,1);will-change:transform,opacity}
+.room-puzzle-dialog .puzzle-picture>.drawer-frame.is-visible{transform:translateY(0);opacity:1}
+.drawer-note-overlay{position:fixed;inset:0;z-index:4;display:grid;place-items:center;overflow:auto;background:#21170c66;animation:note-unfold .25s ease-out}
+.room-puzzle-dialog[data-view='nightstand']:has(.paper-view)::backdrop{background:#161310}
+.room-puzzle-dialog .drawer-note-overlay>.paper-view{width:100%}
+.room-dialog .drawer-note-overlay .puzzle-back{background:#fff1cf;border:1px solid #a98459;color:#705139;text-shadow:none;padding:8px 14px}
+.room-clues li{padding:10px 0;border-bottom:1px dashed #d0ad8e}
+@keyframes note-unfold{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.room-puzzle-dialog .puzzle-picture>.drawer-frame{transition:none}.drawer-note-overlay{animation:none}}
+.room-puzzle-dialog .bookshelf-puzzle>.puzzle-result,.room-puzzle-dialog .bookshelf-puzzle>.puzzle-help,.room-puzzle-dialog .drawer-puzzle>.puzzle-help,.room-puzzle-dialog .drawer-puzzle>.puzzle-result{top:18%;bottom:auto}
+.room-dialog.room-puzzle-dialog:has(.detail-scene-fill){background:#eee4d0}
+.room-puzzle-dialog:has(.detail-scene-fill)::backdrop{background:#eee4d0}
+.detail-scene-fill{position:fixed;inset:0;width:100vw;height:100svh;z-index:0;pointer-events:none;image-rendering:pixelated}
+.bookshelf-puzzle>.puzzle-picture,.drawer-puzzle>.puzzle-picture{z-index:1}
+.bookshelf-puzzle>.puzzle-help,.bookshelf-puzzle>.puzzle-result,.drawer-puzzle>.puzzle-help{z-index:2}
+.adventure-player-error{position:absolute;white-space:nowrap;bottom:110%;left:50%;transform:translateX(-50%);color:#ffe367;font-size:12px}
+/* Blend only the empty edge wallpaper/floor into the extended scene. */
+.bookshelf-puzzle>.puzzle-picture,.drawer-puzzle>.puzzle-picture{mask-image:linear-gradient(to right,transparent,#000 24px,#000 calc(100% - 24px),transparent)}

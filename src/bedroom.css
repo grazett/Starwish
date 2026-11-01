@@ -1,0 +1,5 @@
+.bedroom-preview{position:fixed;inset:0;display:grid;place-items:center;background:#000;font-family:'Starwish IPIX',sans-serif}
+.bedroom-stage{position:relative;width:min(100vw,177.777778svh);aspect-ratio:16/9;overflow:hidden;container-type:inline-size}
+.bedroom-stage canvas{display:block;width:100%;height:100%;image-rendering:pixelated}
+.bedroom-controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:#000c;color:#fff0c9;font-size:clamp(14px,2cqw,24px)}
+.bedroom-controls p{margin:0}.bedroom-controls button{padding:12px 24px;border:3px solid #71391f;background:#e3b776;color:#5b3324;box-shadow:3px 3px 0 #4e291d}.bedroom-controls button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #4e291d}.bedroom-controls a{color:#ffe4ad;font-size:.8em}

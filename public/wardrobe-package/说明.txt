@@ -1,0 +1,5 @@
+入口文件：index.html
+请将整个文件夹复制到游戏 public 目录，保留 fonts 子文件夹。双击 index.html 即可预览。
+页面：昵称框在分类上方；无人物、服装或颜色资源，仅空白框架。
+完成后：仅保留空白底色，不显示任何文字或按钮。
+游戏可监听 starwish:dressup-complete 事件。调用 window.StarwishDressup.show() 可重新显示页面。

@@ -1,0 +1,56 @@
+/* 仅覆盖文字。素材、坐标、云层和现有动画不变。 */
+@font-face{font-family:'Starwish Smiley';src:url('/fonts/smiley-sans.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:'Starwish Pixel';src:url('/fonts/fusion-pixel-12px-zh-hans.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:'Starwish IPIX';src:url('/fonts/ipix-12px.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
+.opening-screen{--game-font:'Starwish Pixel';font-family:var(--game-font),sans-serif}
+.opening-screen[data-font='smiley']{--game-font:'Starwish Smiley'}
+.opening-screen[data-font='pixel']{--game-font:'Starwish Pixel'}
+.opening-screen h1,.opening-screen .pixel-menu-button span,.opening-screen .travel-guide h2,.opening-screen .guide-close{
+ font-family:var(--game-font),sans-serif;
+ /* 原始文件均为单字重，标题与菜单使用浏览器合成加粗，不修改字体文件。 */
+ font-weight:700;font-synthesis:weight;font-style:normal;
+}
+.opening-screen h1{
+ color:#FFF0C9;
+ -webkit-text-stroke:max(1px,.18cqw) #8A4527;
+ paint-order:stroke fill;
+ text-shadow:.26cqw .30cqw 0 #4E291D,.37cqw .42cqw 0 #4E291D;
+ letter-spacing:.045em;text-indent:.045em;
+}
+.opening-screen .pixel-menu-button span{
+ color:#8A4527;-webkit-text-stroke:0;text-shadow:none;letter-spacing:.06em;text-indent:.06em;
+}
+.opening-screen .travel-guide p{font-family:var(--game-font),sans-serif;font-weight:400}
+.opening-screen[data-font='pixel'] h1{
+ /* 七个字约占画布54.6%，填满木牌内框且避开两侧花叶。 */
+ font-size:7.8cqw;
+ font-size:round(down,7.8cqw,1px);
+ color:#CC7C3E;
+ -webkit-text-stroke:max(1px,.16cqw) #71391F;
+ paint-order:stroke fill;
+ /* 无模糊的阶梯侧面与左上高光，模拟木刻字的厚度。 */
+ text-shadow:
+  -.10cqw -.13cqw 0 #FFE0A0,
+  .10cqw .12cqw 0 #A75A30,
+  .20cqw .24cqw 0 #A75A30,
+  .30cqw .36cqw 0 #8A4527,
+  .40cqw .48cqw 0 #71391F,
+  .50cqw .60cqw 0 #4E291D;
+ letter-spacing:0;text-indent:0;
+}
+.opening-screen .travel-guide h2,.opening-screen .travel-guide p,.opening-screen .guide-close{
+ font-family:'Starwish IPIX','Starwish Pixel',sans-serif;font-weight:400;font-synthesis:none;
+}
+.opening-screen .travel-guide h2{font-size:36px;letter-spacing:1px}
+.opening-screen .travel-guide p,.opening-screen .travel-guide .guide-tip{font-size:24px;line-height:1.35;margin:3px 0}
+.opening-screen .guide-close{font-size:24px}
+@media(max-width:600px){.opening-screen .travel-guide h2{font-size:24px}.opening-screen .travel-guide p,.opening-screen .travel-guide .guide-tip{font-size:12px;line-height:1.75}.opening-screen .guide-close{font-size:12px}}
+.opening-screen[data-font='pixel'] .pixel-menu-button span{
+ font-size:max(12px,2.3cqw);
+ font-size:max(12px,round(nearest,2.3cqw,12px));
+ letter-spacing:0;text-indent:0;
+}
+/* 手册正文保留原有滚动区域，仅增加段落间距。 */
+.opening-screen .travel-guide .guide-body p{margin:0 0 12px}
+.opening-screen .travel-guide .guide-body p:last-child{margin-bottom:0}
+@media(max-width:600px){.opening-screen .travel-guide .guide-body p{margin-bottom:8px}.opening-screen .travel-guide .guide-body p:last-child{margin-bottom:0}}

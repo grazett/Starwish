@@ -1,0 +1,24 @@
+.shared-backpack{position:relative;z-index:12;flex:0 0 auto;font-family:'Starwish Pixel',sans-serif;line-height:1.5;color:#68472e}
+.shared-backpack.backpack-overlay{position:absolute;top:3%;left:3%}
+.shared-backpack .backpack-trigger{display:grid;place-items:center;width:52px;height:48px;min-width:44px;min-height:44px;padding:2px;border:0;background:none;box-shadow:none;cursor:pointer;transition:filter .16s,transform .16s}
+.shared-backpack .backpack-trigger img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(1px 2px 0 #39201566)}
+.shared-backpack .backpack-trigger:hover{filter:brightness(1.15);transform:translateY(-1px)}
+.shared-backpack button:focus-visible{outline:2px dashed #ffe293;outline-offset:3px}
+.backpack-panel{position:absolute;left:0;top:calc(100% + 8px);width:min(310px,calc(100vw - 40px));max-height:65svh;overflow:auto;overscroll-behavior:contain;padding:16px;border:3px solid #946039;background:#fff0d4;box-shadow:4px 4px #41261866;font-size:16px;text-align:left}
+.backpack-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.backpack-heading h2{position:static;inset:auto;display:block;margin:0;font:20px 'Starwish Pixel',sans-serif;color:#68472e;letter-spacing:1px;text-shadow:none;white-space:normal}
+.shared-backpack .backpack-close{border:0;box-shadow:none;background:none;color:inherit;font:24px 'Starwish Pixel',sans-serif;min-width:36px;min-height:36px;padding:0;cursor:pointer}
+.backpack-items{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.shared-backpack .backpack-item{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:8px;border:2px solid #dab88b;background:#f8e1b9;box-shadow:none;text-align:left;color:#68472e;font:inherit;cursor:pointer}
+.shared-backpack .backpack-item:hover,.shared-backpack .backpack-item[aria-pressed=true]{background:#ffecc9;border-color:#a87949}
+.backpack-item img{width:64px;height:42px;object-fit:contain;image-rendering:pixelated}.backpack-item small{display:block;color:#98724e;font-size:12px}
+.backpack-detail{font-size:14px;line-height:1.8;border-top:2px dashed #d7b28b;padding-top:12px;margin-bottom:8px}
+.backpack-footnote{display:block;margin-top:14px;font-size:12px;line-height:1.8;color:#957453}
+.backpack-key-progress{font-size:13px;margin:12px 0 0;color:#8c613d}
+.mystery-tools{justify-content:flex-start;gap:12px}.mystery-tools>span:last-of-type{margin-left:auto}.mystery-tools .shared-backpack{z-index:12}
+.first-level-stage:has(.backpack-panel){overflow:visible}
+@media(max-width:600px){.shared-backpack .backpack-trigger{width:44px;height:44px}.backpack-panel{padding:12px;font-size:14px;max-height:65svh}.tailor-level-title{left:calc(3% + 52px)}}
+@media(prefers-reduced-motion:reduce){.shared-backpack .backpack-trigger{transition:none}}
+
+/* Shared chapter label always travels with the backpack. */
+.shared-backpack{display:inline-flex;align-items:center;gap:12px;max-width:82%}.backpack-chapter-label{font:clamp(12px,1.65cqw,26px)/1.5 "Starwish Pixel",sans-serif;color:#fff1b6;text-shadow:2px 2px #67432a;white-space:nowrap;pointer-events:none}.mystery-tools .backpack-chapter-label{color:#68472e;text-shadow:none;font-size:inherit}.mystery-tools>.room-music-toggle{margin-left:auto}.memory-game-header .shared-backpack{max-width:none}@media(max-width:600px){.shared-backpack{gap:6px}.backpack-chapter-label{font-size:clamp(10px,2.7vw,14px)}}
