@@ -4,15 +4,15 @@ export function openingImageSource(src:string){return src.endsWith('.png')?src.s
 export function openingAssets<T extends Record<string,string>>(assets:T):T{
  return Object.fromEntries(Object.entries(assets).map(([key,src])=>[key,openingImageSource(src)])) as T;
 }
-export function loadOpeningImage(src:string):Promise<HTMLImageElement>{
+export function loadOpeningImage(src:string,retry=true):Promise<HTMLImageElement>{
  return new Promise((resolve,reject)=>{
   const image=new Image();
   const cleanup=()=>{clearTimeout(timer);image.onload=null;image.onerror=null;};
-  const timer=setTimeout(()=>{cleanup();reject(new Error(`Image timed out: ${src}`));},60000);
+  const timer=setTimeout(()=>{cleanup();image.src='';reject(new Error(`Image timed out: ${src}`));},20000);
   image.onload=()=>{cleanup();resolve(image);};
   image.onerror=()=>{cleanup();reject(new Error(`Image unavailable: ${src}`));};
   image.src=src;
- });
+ }).catch((error:unknown)=>{if(retry)return loadOpeningImage(src,false);throw error;}) as Promise<HTMLImageElement>;
 }
 
 // Fonts are decorative: slow font downloads must not hold a scene behind black.

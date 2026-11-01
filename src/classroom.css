@@ -9,3 +9,4 @@
 .sequence-blackout.covered{opacity:1;transition:none}
 .sequence-loading{position:fixed;inset:0;z-index:51;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#071e35;color:#fff0c9;text-align:center;font:clamp(14px,2vw,24px)/1.7 'Starwish Pixel',sans-serif;pointer-events:none}
 .sequence-loading p{margin:0}.sequence-loading small{font:14px/1.7 sans-serif;color:#c5d6db}
+.sequence-loading button{pointer-events:auto;padding:10px 24px;border:3px solid #a77948;background:#ffe4ad;color:#704c30;font:inherit;cursor:pointer}
