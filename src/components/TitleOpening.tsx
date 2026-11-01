@@ -1,4 +1,5 @@
-import {loadOpeningImage,prepareOpeningFont} from '../openingImages';
+import {loadOpeningImage,prepareOpeningFont,preloadOpeningImages} from '../openingImages';
+import {bedroomAssetSources} from '../bedroomV5Scene';
 import {useEffect,useRef,useState,useSyncExternalStore} from 'react';
 import {cloudSprites,titleAssets} from '../titleAssets';
 import {sound,unlockAudio} from '../audio';
@@ -20,6 +21,7 @@ export default function TitleOpening({onStart}:{onStart?:()=>void}={}){
  const pressTimer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
  useEffect(()=>{let cancelled=false;const images=Object.values(titleAssets).map(src=>loadOpeningImage(src));const fonts=[prepareOpeningFont(`700 32px "${fontFamily}"`,'欢迎来到星愿谷开始旅程旅行手册'),prepareOpeningFont('400 12px "Starwish IPIX"','旅行手册欢迎来到星愿谷合上手册')];Promise.all([...images,...fonts]).then(()=>{if(!cancelled)setLoaded(true);}).catch(()=>{if(!cancelled)setError(true);});return()=>{cancelled=true;};},[]);
  useGameMusic(loaded?'title':'silent',muted);
+ useEffect(()=>{if(!loaded)return;let stop:undefined|(()=>void);const timer=setTimeout(()=>{stop=preloadOpeningImages(bedroomAssetSources);},800);return()=>{clearTimeout(timer);stop?.();};},[loaded]);
  useEffect(()=>{if(loaded&&(muted||playback==='playing'))setOpeningStarted(true);},[loaded,muted,playback]);
  useEffect(()=>{if(!openingStarted)return;let frame=0;const start=performance.now();const tick=(now:number)=>{const elapsed=(now-start)/1000,t=Math.min(1,Math.max(0,(elapsed-2)/2)),camera=t*t*(3-2*t);scene.current?.style.setProperty('--camera',String(camera));scene.current?.style.setProperty('--dawn',String(Math.max(0,1-elapsed/2)));setState(previous=>{const next=elapsed>=9?'menuReady':elapsed>=4?'titleReveal':'opening';return previous===next?previous:next;});if(elapsed<9)frame=requestAnimationFrame(tick);};frame=requestAnimationFrame(tick);return()=>cancelAnimationFrame(frame);},[openingStarted]);
  useEffect(()=>{try{localStorage.setItem(muteKey,String(muted));}catch{/* 当前会话仍可切换 */}},[muted]);
